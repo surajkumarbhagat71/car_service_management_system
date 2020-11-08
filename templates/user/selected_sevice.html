@@ -1,0 +1,39 @@
+{% extends 'user/base.html' %}
+
+{% block content %}
+    <div class="container">
+        {% for x in select %}
+        <div class="row mt-4">
+            <div class="col-lg-10 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="display-5 text-success text-center">Aprove Request</h5>
+                        <table class="table">
+                            <tr>
+                                <td>User Name</td>
+                                <td>{{ x.company }}</td>
+                            </tr>
+                            <tr>
+                                <td>User Name</td>
+                                <td>{{ x.registation_no }}</td>
+                            </tr>
+                            <tr>
+                                <td>User Name</td>
+                                <td>{{ x.service_date }}</td>
+                            </tr>
+                            <tr>
+                                <td>User Name</td>
+                                <td>{{ x.service_time }}</td>
+                            </tr>
+                            <tr>
+                                <td>User Name</td>
+                                <td>{{ x.status }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

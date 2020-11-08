@@ -1,0 +1,40 @@
+{% extends 'admins/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class='row'>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="display-5 text-center text-uppercase text-success">Servicing</h5>
+                        <table class="table table-sm">
+                            <tr>
+                                <th>User Name</th>
+                                <th>Address</th>
+                                <th>City</th>
+                                <th>Reg No</th>
+                                <th>company</th>
+                                <th>Service Date</th>
+                                <th>Service Time</th>
+                                <th>Action</th>
+                            </tr>
+                            {% for x in apseptservices %}
+                            <tr>
+                                <td>{{ x.user_id.name }}</td>
+                                <td>{{ x.user_id.address }}</td>
+                                <td>{{ x.user_id.city }}</td>
+                                <td>{{ x.registation_no }}</td>
+                                <td>{{ x.company }}</td>
+                                <td>{{ x.service_date }}</td>
+                                <td>{{ x.service_time }}</td>
+                                <td><a href="{% url 'complite' x.service_id %}" class="btn btn-primary btn-sm">complite</a></td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

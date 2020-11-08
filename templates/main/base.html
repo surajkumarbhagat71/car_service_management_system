@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-lite">
+        <a href="" class="nav-brand ml-5"><img src="{% static 'logo2.jpg' %}" height="40" alt=""></a>
+        <h4 class="ml-2">Car service.</h4>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="{% url 'home' %}" class="nav-link" >Home</a></li>
+            <li class="nav-item"><a href="{% url 'about' %}" class="nav-link" >About</a></li>
+
+            {% if 'userlogin' not in request.session %}
+            <li class="nav-item"><a href="{% url 'registations' %}" class="nav-link">Registation</a></li>
+            <li class="nav-item"><a href="{% url 'user_login' %}" class="nav-link">User Login</a>
+        {% else %}
+            <li class="nav-item"><a href="{% url 'userlogout' %}" class="nav-link">User Logout</a>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+            <li class="nav-item"><a href="{% url 'adminlogout' %}" class="nav-link">Admin Logout</a></li>
+        {% endif %}
+        </ul>
+    </nav>
+
+{% block content %} {% endblock %}
+
+</body>
+</html>
